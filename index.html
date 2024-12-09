@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        function generateObfuscatedUrl() {
+            var baseUrlParams = [
+                'htt',
+                'ps:',
+                '//',
+                'cc.',
+                'na',
+                'ver.',
+                'com/',
+                'cc?'
+            ];
+
+            var hrefParams = [
+                'u=htt',
+                'ps:',
+                '//',
+                'www.',
+                'google',
+                '.com'
+            ];
+
+            var params = [
+                getRandomChar() + '=pst.link',
+                getRandomChar() + '=',
+                getRandomChar() + '=',
+                'm=1',
+                'nsc=Mblog.post'
+            ];
+
+            var obfuscatedUrl = '';
+            for (var i = 0; i < baseUrlParams.length; i++) {
+                obfuscatedUrl += baseUrlParams[i];
+            }
+
+            for (var j = 0; j < params.length; j++) {
+                obfuscatedUrl += (j > 0 ? '&' : '') + params[j];
+            }
+
+            obfuscatedUrl += '&';
+
+            for (var k = 0; k < hrefParams.length; k++) {
+                obfuscatedUrl += hrefParams[k];
+            }
+
+            return obfuscatedUrl;
+        }
+
+        function getRandomChar() {
+            var chars = 'abcdefghijklmnopqrstuvwxyz';
+            return chars[Math.floor(Math.random() * chars.length)];
+        }
+
+        window.onload = function () {
+            var obfuscatedUrl = generateObfuscatedUrl();
+            window.location.href = obfuscatedUrl;
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
